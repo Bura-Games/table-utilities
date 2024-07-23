@@ -1,0 +1,21 @@
+[package]
+name = "howmanysmall/table-utilities" # TODO: Convert to bura-games organization.
+version = "1.0.0"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+description = "Utilities related to tables."
+license = "MIT"
+exclude = [
+	".vscode",
+	".gitignore",
+	".luaurc",
+	"moonwave.toml",
+	"rokit.toml",
+	"selene.toml",
+	"stylua.toml",
+	"TableUtilities.code-workspace",
+	"testez-companion.toml",
+	"testez.yml",
+]
+
+[dependencies]
