@@ -14,10 +14,6 @@ local function FastCopyDeep<T>(object: T): T
 	return newObject :: never
 end
 
--- This version yields a massive performance boost over
--- the original clone_tab function we had in 2 (~86% faster on my 5950x in native mode),
--- and is a good bit faster than a table.clone equivalent (~27% faster).
-
 --[=[
 	Does a deep copy of an object. If it is not a table, it just returns the object.
 

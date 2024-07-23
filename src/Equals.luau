@@ -43,7 +43,7 @@ end
 	@function Equals
 	@within TableUtilities
 
-	@param ... ...{[any]: any} -- The tables to compare.
+	@param ... ...{[unknown]: unknown} -- The tables to compare.
 	@return boolean -- Whether the tables are equal.
 ]=]
 --@native
