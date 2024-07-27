@@ -9,7 +9,8 @@ local serde = require("@lune/serde")
 local wally = serde.decode("toml", fs.readFile("wally.toml"))
 
 local lastVersion = wally.package.version
-local nextVersion = assert(process.args[1], "version required!\n\nusage:\n  lune set-version -- <version>")
+local nextVersion = process.args[1]
+assert(nextVersion, "version required!\n\nusage:\n  lune run set-version -- <version>")
 
 assert(
 	string.match(nextVersion, "^[0-9]+%.[0-9]+%.[0-9]+$")
@@ -28,6 +29,8 @@ local function replaceVersion(file: string, from: string, to: string)
 end
 
 replaceVersion("README.md", `@{lastVersion}`, `@{nextVersion}`)
+replaceVersion("docs/installation.md", `@^{lastVersion}`, `@^{nextVersion}`)
+replaceVersion("docs/intro.md", `@^{lastVersion}`, `@^{nextVersion}`)
 replaceVersion("docs/installation.md", `@{lastVersion}`, `@{nextVersion}`)
 replaceVersion("docs/intro.md", `@{lastVersion}`, `@{nextVersion}`)
 replaceVersion("wally.toml", `version = "{lastVersion}"`, `version = "{nextVersion}"`)
