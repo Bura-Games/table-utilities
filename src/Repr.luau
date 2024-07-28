@@ -633,7 +633,7 @@ local FORMATTERS: {[string]: string | (value: any, reprOptions: RequiredReprSett
 	CatalogSearchParams = function(newValue: CatalogSearchParams, reprOptions)
 		return `CatalogSearchParams.new({Repr({
 			AssetTypes = Repr(newValue.AssetTypes, reprOptions);
-			BundleType = Repr(newValue.BundleType, reprOptions);
+			BundleTypes = Repr(newValue.BundleTypes, reprOptions);
 			CategoryFilter = Repr(newValue.CategoryFilter, reprOptions);
 			MaxPrice = Repr(newValue.MaxPrice, reprOptions);
 			MinPrice = Repr(newValue.MinPrice, reprOptions);
