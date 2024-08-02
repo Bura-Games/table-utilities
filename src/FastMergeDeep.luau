@@ -33,7 +33,7 @@ local function FastMergeDeep<T>(...: any): T
 
 		local result = (if dictionary0 then CopyDeep(dictionary0) else {}) :: never
 		if dictionary1 and type(dictionary1) == "table" then
-			for key, value in dictionary1 do
+			for key, value in next, dictionary1 do
 				if type(value) == "table" then
 					if result[key] == nil or type(result[key]) ~= "table" then
 						result[key] = CopyDeep(value)
@@ -54,7 +54,7 @@ local function FastMergeDeep<T>(...: any): T
 
 		local result = (if dictionary0 then CopyDeep(dictionary0) else {}) :: never
 		if dictionary1 and type(dictionary1) == "table" then
-			for key, value in dictionary1 do
+			for key, value in next, dictionary1 do
 				if type(value) == "table" then
 					if result[key] == nil or type(result[key]) ~= "table" then
 						result[key] = CopyDeep(value)
@@ -67,7 +67,7 @@ local function FastMergeDeep<T>(...: any): T
 			end
 		end
 		if dictionary2 and type(dictionary2) == "table" then
-			for key, value in dictionary2 do
+			for key, value in next, dictionary2 do
 				if type(value) == "table" then
 					if result[key] == nil or type(result[key]) ~= "table" then
 						result[key] = CopyDeep(value)
@@ -88,7 +88,7 @@ local function FastMergeDeep<T>(...: any): T
 
 		local result = (if dictionary0 then CopyDeep(dictionary0) else {}) :: never
 		if dictionary1 and type(dictionary1) == "table" then
-			for key, value in dictionary1 do
+			for key, value in next, dictionary1 do
 				if type(value) == "table" then
 					if result[key] == nil or type(result[key]) ~= "table" then
 						result[key] = CopyDeep(value)
@@ -101,7 +101,7 @@ local function FastMergeDeep<T>(...: any): T
 			end
 		end
 		if dictionary2 and type(dictionary2) == "table" then
-			for key, value in dictionary2 do
+			for key, value in next, dictionary2 do
 				if type(value) == "table" then
 					if result[key] == nil or type(result[key]) ~= "table" then
 						result[key] = CopyDeep(value)
@@ -114,7 +114,7 @@ local function FastMergeDeep<T>(...: any): T
 			end
 		end
 		if dictionary3 and type(dictionary3) == "table" then
-			for key, value in dictionary3 do
+			for key, value in next, dictionary3 do
 				if type(value) == "table" then
 					if result[key] == nil or type(result[key]) ~= "table" then
 						result[key] = CopyDeep(value)
@@ -137,7 +137,7 @@ local function FastMergeDeep<T>(...: any): T
 			continue
 		end
 
-		for key, value in dictionary do
+		for key, value in next, dictionary do
 			if type(value) == "table" then
 				if result[key] == nil or type(result[key]) ~= "table" then
 					result[key] = CopyDeep(value)

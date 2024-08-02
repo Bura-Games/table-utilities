@@ -1,7 +1,7 @@
 --!optimize 2
 --!strict
 
-local CopyDeep = require(script.Parent.CopyDeep)
+local FastMergeDeep = require(script.Parent.FastMergeDeep)
 local IsArray = require(script.Parent.IsArray)
 
 --[=[
@@ -188,29 +188,6 @@ local function IntegerOrFloat(number: number | string)
 	return if trueNumber % 1 == 0 then string.format("%d", trueNumber) else GetFloat(trueNumber)
 end
 
-local function MergeDeep<T>(...: {[any]: any}?): T
-	local new = {}
-	for index = 1, select("#", ...) do
-		local dictionary = select(index, ...)
-		if type(dictionary) ~= "table" then
-			continue
-		end
-
-		for key, value in dictionary do
-			if type(value) == "table" then
-				if new[key] == nil or type(new[key]) ~= "table" then
-					new[key] = CopyDeep(value)
-				else
-					new[key] = MergeDeep(new[key], value)
-				end
-			else
-				new[key] = value
-			end
-		end
-	end
-
-	return new :: never
-end
 local function SharedTableToNormalTable(sharedTable: SharedTable): {[any]: any}
 	local newTable = {}
 	for key, value in sharedTable :: never do
@@ -687,7 +664,7 @@ local FORMATTERS: {[string]: string | (value: any, reprOptions: RequiredReprSett
 	@return string -- The formatted value.
 ]=]
 function Repr(value: any, reprSettings: ReprSettings?)
-	local reprOptions: RequiredReprSettings = MergeDeep(DEFAULT_SETTINGS, reprSettings)
+	local reprOptions: RequiredReprSettings = FastMergeDeep(DEFAULT_SETTINGS, reprSettings)
 
 	if reprOptions.Tabs then
 		CurrentIndent = "\t"
