@@ -19,5 +19,5 @@ Using our RepoToRoblox plugin is the easiest way to install in Studio.
 
 ```toml
 [dependencies]
-TableUtilities = "howmanysmall/table-utilities@^1.2.0"
+TableUtilities = "howmanysmall/table-utilities@^1.2.1"
 ```
