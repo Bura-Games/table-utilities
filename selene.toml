@@ -1,4 +1,4 @@
-std = "lune+testez"
+std = "lune"
 exclude = [".lune/*", ".typedefs/*"]
 
 [config]
